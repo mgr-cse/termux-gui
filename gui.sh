@@ -5,6 +5,7 @@
 prereq() {
     pkg update
     pkg install x11-repo
+    pkg install xorg-xhost
     pkg install tigervnc xfce4-session xfce4-goodies
     if [ -d $HOME/.vnc ]; then
         rm -rf $HOME/.vnc
