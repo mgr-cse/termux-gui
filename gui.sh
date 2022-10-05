@@ -40,10 +40,18 @@ start() {
     DISPLAY=:1 xhost +
 }
 
+uninstall () {
+    clean
+    apt autoremove --purge xorg-xhost tigervnc xfce4-session xfce4-goodies
+    rm -rf $HOME/.vnc
+}
+
 if [ "$1" == "prereq" ]; then
     prereq
 elif [ "$1" == "clean" ]; then
     clean
+elif [ "$1" == "uninstall" ]; then
+    uninstall
 else
     start
 fi
